@@ -1,0 +1,1662 @@
+//for Placeholder!!!(ИСЧЕЗАЮЩИЙ ПЛЕЙСХОЛДЕР)
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+} /* FF 4-18 */
+input:focus::-moz-placeholder {
+  color: transparent;
+} /* FF 19+ */
+input:focus:-ms-input-placeholder {
+  color: transparent;
+} /* IE 10+ */
+
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+textarea:focus:-moz-placeholder {
+  color: transparent;
+} /* FF 4-18 */
+textarea:focus::-moz-placeholder {
+  color: transparent;
+} /* FF 19+ */
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+} /* IE 10+ */
+//<МИКСИНЫ>===============================================================================================
+@import 'mixins.scss';
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@include font('MontserratUL', 'Montserrat-UltraLight', '400', 'normal');
+//&display=swap&subset=cyrillic-ext
+@import 'fonts.scss';
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+//@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: 'Montserrat';
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import 'null.scss';
+body {
+  color: #000;
+  font-size: 14px;
+  &._lock {
+    overflow: hidden;
+  }
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  &._loaded {
+  }
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import 'forms.scss';
+@import 'ui.scss';
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+//@import "lightgallery";
+//@import "pagging";
+@import 'slick.scss';
+@import 'popup.scss';
+@import 'header.scss';
+@import 'footer.scss';
+@import 'home.scss';
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+  flex: 1 1 auto;
+}
+//===================================================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+.intro {
+  @include flexbox();
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('../img/intro-bg.jpg') 50% 0 / cover no-repeat;
+  background-position: center;
+  &--second {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url('../img/slick-slider/01.jpg') 50% 0 / cover no-repeat;
+  }
+  &--third {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url('../img/slick-slider/02.jpg') 50% 0 / cover no-repeat;
+  }
+}
+.intro {
+  &__inner {
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    @media (max-width: $md3+px) {
+      margin: 30px 0px 0px 0px;
+    }
+    @media (max-width: $md4+px) {
+      margin: 60px 0px 0px 0px;
+    }
+  }
+  &__suptitle {
+    color: #ffffff;
+    font-family: 'Raleway';
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0px 0px 15px 0px;
+    @media (max-width: $md2+px) {
+      font-size: 29px;
+      margin: 0px 0px 25px 0px;
+    }
+
+    @media (max-width: $md3+px) {
+      font-size: 24px;
+    }
+  }
+
+  &__title {
+    color: #ffffff;
+    font-family: 'Raleway';
+    font-size: 56px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    @media (max-width: $md2+px) {
+      font-size: 46px;
+      margin: 0px 0px 25px 0px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 36px;
+    }
+  }
+
+  &__subtext {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: center;
+    max-width: 590px;
+    text-align: center;
+    margin: 0 auto 50px;
+    @media (max-width: $md2+px) {
+      font-size: 14px;
+      max-width: 500px;
+      line-height: 20px;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0 auto 25px;
+    }
+    @media (max-width: $md4+px) {
+      margin: 0 auto 20px;
+    }
+  }
+
+  &__btn {
+  }
+}
+//==================================================================================================
+.intro-slider {
+  position: absolute;
+  @include flexbox();
+  z-index: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 45px;
+  width: 100%;
+  height: 100%;
+  @media (max-width: $md2+px) {
+    display: none;
+  }
+  &__left {
+    right: 0;
+    cursor: pointer;
+  }
+
+  &__right {
+    cursor: pointer;
+  }
+}
+//==================================================================================================
+.intro-dots-inner {
+  @include flexbox();
+  justify-content: center;
+}
+.intro-dots {
+  @include flexbox();
+
+  width: 100px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 50px;
+
+  &__item {
+  }
+
+  &__link {
+  }
+}
+//=================================================================================================
+.second {
+  padding: 80px 0px 0px 0px;
+  @media (max-width: $md2+px) {
+    padding: 40px 0px 0px 0px;
+  }
+  @media (max-width: $md3+px) {
+    padding: 20px 0px 0px 0px;
+  }
+  &__row {
+    @include flexbox();
+    justify-content: space-between;
+
+    @media (max-width: $md2+px) {
+      flex-wrap: wrap;
+    }
+    @media (max-width: $md3+px) {
+      justify-content: center;
+    }
+    @media (max-width: $md4+px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__column {
+    @include flexbox();
+
+    padding: 10px;
+
+    @media (max-width: $md4+px) {
+      flex: 0 0 100%;
+      padding: 0px;
+    }
+  }
+
+  &__ideas {
+    background-color: #fbfaf8;
+  }
+  .ideas {
+    &__title {
+      color: #555555;
+      font-family: 'Raleway';
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      padding: 80px 0px 0px 0px;
+      margin: 0px 0px 25px 0px;
+
+      @media (max-width: $md2+px) {
+        padding: 40px 0px 0px 0px;
+      }
+      @media (max-width: $md3+px) {
+        font-size: 24px;
+        padding: 10px 0px 0px 0px;
+      }
+      @media (max-width: $md4+px) {
+      }
+    }
+    &__text {
+      color: #8c8c8c;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 28px;
+      text-align: center;
+      max-width: 770px;
+      margin: 0 auto 40px;
+      @media (max-width: $md2+px) {
+        margin: 0 auto 30px;
+      }
+      @media (max-width: $md3+px) {
+        margin: 0 auto 20px;
+        font-size: 15px;
+      }
+    }
+    &__image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+.ideas__image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.second-item {
+  @include flexbox();
+  flex-direction: column;
+  margin: 0px 0px 80px 0px;
+  @media (max-width: $md2+px) {
+    margin: 0px 0px 60px 0px;
+  }
+  @media (max-width: $md3+px) {
+    margin: 0px 0px 40px 0px;
+  }
+  @media (max-width: $md4+px) {
+    margin: 0px 0px 25px 0px;
+  }
+
+  &__icon {
+    @include flexbox();
+    justify-content: center;
+    margin: 0px 0px 30px 0px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 20px 0px;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__title {
+    color: #555555;
+    font-family: 'Raleway';
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 10px 0px;
+    }
+  }
+
+  &__text {
+    color: #8c8c8c;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: center;
+    max-width: 280px;
+    position: relative;
+    margin: 0 10px;
+    flex: 1 1 auto;
+    &::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background-color: #f1eee9;
+      position: absolute;
+      bottom: -30px;
+
+      left: 35%;
+      z-index: 1;
+      @media (max-width: $md3+px) {
+        display: none;
+      }
+    }
+  }
+}
+.second-item--active {
+  .second-item__icon {
+    filter: invert(0.65) sepia(1) saturate(1) hue-rotate(0deg) brightness(1);
+  }
+  .second-item__title {
+    color: #c7b299;
+  }
+  .second-item__text {
+    &::after {
+      content: '';
+      background-color: #c7b299;
+    }
+  }
+}
+.ideas {
+  &__bg {
+    position: relative;
+    height: 482px;
+    @media (max-width: $md2+px) {
+      height: 380px;
+    }
+    @media (max-width: $md3+px) {
+      height: 320px;
+    }
+    @media (max-width: $md4+px) {
+      height: 200px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+//=========================================================================================================
+.wordpress {
+  background-image: linear-gradient(to right, #211b19 0%, #4e3427 100%);
+  margin: 0px 0px 80px 0px;
+  @media (max-width: $md2+px) {
+    margin: 0px 0px 50px 0px;
+  }
+  @media (max-width: $md3+px) {
+    padding: 0px 0px 30px 0px;
+    margin: 0px 0px 35px 0px;
+  }
+  @media (max-width: $md4+px) {
+    margin: 0px 0px 25px 0px;
+  }
+  &__row {
+    @include flexbox();
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: $md2+px) {
+      height: 110px;
+    }
+    @media (max-width: $md3+px) {
+      @include flexbox();
+      flex-direction: column;
+      padding: 15px 0px 0px 0px;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__column {
+  }
+
+  &__title {
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 28px;
+    text-align: left;
+    line-height: 45px;
+    span {
+      color: #c7b299;
+    }
+    @media (max-width: $md2+px) {
+      font-size: 24px;
+      line-height: 35px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 16px;
+      margin: -5px 0px 10px 0px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: #615855;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: left;
+
+    @media (max-width: $md2+px) {
+      font-size: 16px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 14px;
+      text-align: center;
+      line-height: 20px;
+    }
+  }
+
+  &__button {
+    margin: 2px;
+
+    @media (max-width: $md3+px) {
+      margin: 18px 10px -10px 0px;
+      padding: 6px 15px;
+      font-size: 14px;
+    }
+  }
+}
+//========================================================================================================
+.our {
+  text-align: center;
+  &__top {
+  }
+
+  &__bottom {
+  }
+
+  &__button {
+    display: inline-flex;
+    margin: 40px 0px 80px 0px;
+    @media (max-width: $md2+px) {
+      margin: 30px 0px 50px 0px;
+    }
+    @media (max-width: $md3+px) {
+      margin: 18px 10px 20px;
+      padding: 6px 15px;
+      font-size: 14px;
+    }
+  }
+}
+
+.our-top {
+  text-align: center;
+  &__title {
+    color: #555555;
+    font-family: 'Raleway';
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0px 0px 20px 0px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 13px 0px;
+      font-size: 24px;
+    }
+  }
+
+  &__text {
+    margin: 0 auto 40px;
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    max-width: 770px;
+    @media (max-width: $md2+px) {
+      margin: 0 auto 30px;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0 auto 20px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 15px;
+    }
+  }
+
+  &__nav {
+  }
+}
+.our-nav {
+  margin: 0 auto 20px;
+  &__list {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0px 0px 40px 0px;
+    @media (max-width: $md2+px) {
+      margin: 0px 0px 30px 0px;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 0px 0px;
+      @include flexbox();
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    li {
+      padding: 8px 25px;
+      border-radius: 3px;
+      background-color: #fff;
+      border: 1px solid #ebebeb;
+      margin: 0px 5px 0px 5px;
+      @include anim(0.4s, 0s);
+      @media (max-width: $md2+px) {
+        padding: 6px 20px;
+      }
+      @media (max-width: $md3+px) {
+        padding: 5px 10px;
+        white-space: nowrap;
+        margin: 7px 10px;
+        flex: 0 0 25%;
+      }
+      &:hover {
+        background-color: #362f2d;
+      }
+    }
+  }
+  .li-active {
+    background-color: #998675;
+  }
+  &__link {
+    color: #8c8c8c;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+    @include anim(0.4s, 0s);
+    &--active {
+      color: #fff;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.our-bottom {
+  &__body {
+    @include flexbox();
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    position: relative;
+    padding: 0px 15px 0px 15px;
+    flex: 0 0 33.333%;
+
+    @media (max-width: $md2+px) {
+      padding: 0px 4px 0px 4px;
+    }
+    @media (max-width: $md3+px) {
+      flex: 0 0 50%;
+    }
+    @media (max-width: $md4+px) {
+    }
+
+    &:hover {
+      .our-item__image::before {
+        opacity: 1;
+      }
+      .our-item__image {
+        overflow: hidden;
+      }
+      .our-item__image img {
+        transform: scale(1.2);
+      }
+      .titletext {
+        background-color: #362f2d;
+      }
+      .our-item__title {
+        color: #fff;
+      }
+      .our-item__text {
+        color: #c7b299;
+      }
+      .our-item__minilink,
+      .our-item__minilink--second {
+        opacity: 1;
+      }
+    }
+  }
+}
+.our-item {
+  @include flexbox();
+  flex-direction: column;
+  &__image {
+    display: block;
+    padding: 0px 0px 70% 0px;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      @include anim(0.4s, 0s);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      &:hover {
+        .our-item__minilink,
+        .our-item__minilink--second {
+        }
+      }
+    }
+    img {
+      @include anim(1s, 0s);
+    }
+  }
+  &__minilink {
+    position: absolute;
+    top: 33%;
+    display: block;
+    left: 33%;
+    @media (max-width: $md3+px) {
+      display: none;
+    }
+    width: auto;
+    height: auto;
+    display: inline-block;
+    @include anim(0.4s, 0s);
+    z-index: 1;
+    opacity: 0;
+    &:hover {
+      img {
+        @include anim(0.2s, 0s);
+        filter: invert(0.5) sepia(1);
+      }
+    }
+
+    &--second {
+      position: absolute;
+      width: auto;
+      height: auto;
+      top: 33%;
+      left: 56%;
+      z-index: 1;
+      opacity: 0;
+    }
+  }
+  .titletext {
+    background-color: #fbfaf8;
+    margin: 0px 0px 10px 0px;
+    @include anim(0.4s, 0s);
+    @include flexbox();
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 10px 10px 30px;
+    @media (max-width: $md1+px) {
+      padding: 0px 10px 10px 25px;
+    }
+    @media (max-width: $md2+px) {
+      padding: 0px 10px 10px 15px;
+    }
+    @media (max-width: $md3+px) {
+      padding: 0px 10px 5px 7px;
+    }
+  }
+  &__title {
+    color: #c7b299;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 40px;
+    @include anim(0.4s, 0s);
+    @media (max-width: $md2+px) {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    @media (max-width: $md3+px) {
+      line-height: 20px;
+      font-size: 15px;
+    }
+  }
+
+  &__text {
+    color: #d1d1d1;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    flex: 1 1 auto;
+    @include anim(0.4s, 0s);
+    text-align: left;
+    @media (max-width: $md3+px) {
+      font-size: 10.5px;
+    }
+  }
+}
+//======================================================================================================
+.video {
+  height: 705px;
+  padding-bottom: 23%;
+  @media (max-width: $md1+px) {
+    height: 600px;
+  }
+  @media (max-width: $md2+px) {
+    height: 380px;
+  }
+  @media (max-width: $md3+px) {
+    height: 300px;
+  }
+  &__imagebg {
+    position: absolute;
+    width: 100%;
+    height: 705px;
+    @media (max-width: $md1+px) {
+      height: 600px;
+    }
+    @media (max-width: $md2+px) {
+      height: 380px;
+    }
+    @media (max-width: $md3+px) {
+      height: 300px;
+    }
+    top: 0;
+    left: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  }
+}
+.video-body {
+  position: relative;
+  z-index: 1;
+  @include flexbox();
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 210px;
+  @media (max-width: $md1+px) {
+    margin-top: 150px;
+  }
+  @media (max-width: $md2+px) {
+    margin-top: 55px;
+  }
+  @media (max-width: $md3+px) {
+    margin-top: 50px;
+  }
+  @media (max-width: $md4+px) {
+    margin-top: 40px;
+  }
+
+  &__playbutton {
+    margin: 0px 0px 40px 0px;
+    @media (max-width: $md2+px) {
+      margin: 0px 0px 20px 0px;
+      width: 80px;
+    }
+    @media (max-width: $md3+px) {
+      width: 50px;
+      margin: 0px 0px 25px 0px;
+    }
+    img {
+      @media (max-width: $md2+px) {
+        width: 80px;
+
+        display: block;
+      }
+      @media (max-width: $md3+px) {
+        width: 50px;
+      }
+    }
+  }
+
+  &__title {
+    color: #ffffff;
+    font-family: Raleway;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0px 0px 25px 0px;
+    @media (max-width: $md2+px) {
+      margin: 0px 0px 15px 0px;
+      font-size: 26px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 24px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    flex: 1 1 auto;
+    line-height: 28px;
+    text-align: center;
+    max-width: 570px;
+    margin: 0px 0px 35px 0px;
+    @media (max-width: $md3+px) {
+      font-size: 14px;
+      max-width: 500px;
+      line-height: 22px;
+      margin: 0px 0px 12px 0px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 13px;
+      max-width: 360px;
+    }
+  }
+
+  &__video-duration {
+    color: #c7b299;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 700;
+  }
+}
+//==================================================================================================
+.mobile {
+  &__inner {
+    padding: 80px 0px 0px 0px;
+
+    @media (max-width: $md1+px) {
+      padding: 50px 0px 0px 0px;
+    }
+    @media (max-width: $md2+px) {
+      padding: 30px 0px 0px 0px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    max-width: 1110px;
+    justify-content: space-between;
+    @media (max-width: $md3+px) {
+      flex-direction: column;
+    }
+  }
+
+  &__column {
+    &:first-child {
+      flex: 0 0 40%;
+      padding: 0px 20px 0px 0px;
+      @media (max-width: $md3+px) {
+      }
+    }
+    &:last-child {
+      flex: 0 0 60%;
+    }
+  }
+  &__bg {
+    height: 616px;
+    position: relative;
+    @media (max-width: $md1+px) {
+      height: 550px;
+    }
+    @media (max-width: $md2+px) {
+      height: 500px;
+    }
+    @media (max-width: $md3+px) {
+      height: 320px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
+.mobile-body {
+  padding: 115px 0px 0px 0px;
+  @media (max-width: $md1+px) {
+    padding: 90px 0px 0px 0px;
+  }
+  @media (max-width: $md2+px) {
+    padding: 60px 0px 0px 0px;
+  }
+  @media (max-width: $md3+px) {
+    padding: 30px 0px 0px 0px;
+  }
+  &__title {
+    color: #555555;
+    font-family: 'Raleway';
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    margin: 0px 0px 35px 0px;
+    @media (max-width: $md2+px) {
+      font-size: 26px;
+      margin: 0px 0px 15px 0px;
+    }
+    @media (max-width: $md3+px) {
+      text-align: center;
+      font-size: 21px;
+    }
+  }
+
+  &__text {
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: left;
+    margin: 0px 0px 40px 0px;
+    @media (max-width: $md2+px) {
+      font-size: 14px;
+      margin: 0px 0px 20px 0px;
+    }
+    @media (max-width: $md3+px) {
+      text-align: justify;
+      margin: 0px 0px 10px 0px;
+    }
+  }
+
+  &__list {
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 32px;
+    text-align: left;
+    overflow: visible;
+    padding: 0px 0px 0px 50px;
+    @media (max-width: $md1+px) {
+      padding: 0px 0px 0px 10px;
+    }
+    @media (max-width: $md2+px) {
+      font-size: 14px;
+    }
+    @media (max-width: $md3+px) {
+      line-height: 25px;
+      padding: 0px 0px 0px 0px;
+    }
+    li {
+      background: url('../img/icons/mobile-icon.svg') left no-repeat;
+      overflow: visible;
+
+      padding: 0px 0px 0px 50px;
+      @media (max-width: $md1+px) {
+        padding: 0px 0px 5px 25px;
+      }
+      @media (max-width: $md4+px) {
+        background: url('../img/icons/mobile-icon.svg') 0 1.5px / 25px no-repeat;
+        padding: 0px 0px 15px 35px;
+      }
+    }
+  }
+}
+//=================================================================================================
+.statistics {
+  background-image: linear-gradient(to right, #211b19 0%, #4e3427 100%);
+}
+
+.stat {
+  padding: 70px 0px 60px 0px;
+  @include flexbox();
+  max-width: 920px;
+  justify-content: space-between;
+  margin: 0 auto;
+  @media (max-width: $md1+px) {
+    padding: 50px 0px 40px 0px;
+  }
+  @media (max-width: $md2+px) {
+    padding: 35px 0px 30px 0px;
+  }
+  @media (max-width: $md3+px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media (max-width: $md4+px) {
+    padding: 15px 0px 15px 0px;
+  }
+}
+.stat-item {
+  @include flexbox();
+  flex-direction: column;
+
+  align-items: center;
+  &::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 30px auto 0;
+    @media (max-width: $md2+px) {
+      margin: 20px auto 0;
+    }
+    @media (max-width: $md3+px) {
+      margin: 12px auto 0;
+      display: none;
+    }
+  }
+  @media (max-width: $md3+px) {
+    flex: 0 0 33.333%;
+    margin: 0px 0px 40px 0px;
+  }
+  @media (max-width: $md4+px) {
+    margin: 0px 0px 25px 0px;
+    &:last-child {
+      margin: 0px 0px 0px 0px;
+    }
+  }
+  @media (max-width: $md4+px) {
+    flex: 0 0 50%;
+  }
+  &__icon {
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+    @media (max-width: $md2+px) {
+      margin: 0px 0px 20px 0px;
+      img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 10px 0px;
+    }
+    @media (max-width: $md4+px) {
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+  &__count {
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 36px;
+    font-family: 'MontserratUL';
+    font-weight: 400;
+    text-align: center;
+    margin: 0px 0px 15px 0px;
+    @media (max-width: $md2+px) {
+      font-size: 36px;
+      margin: 0px 0px 10px 0px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 28px;
+      margin: 0px 0px 8px 0px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 20px;
+      line-height: 20px;
+      margin: 0px 0px 4px 0px;
+    }
+  }
+
+  &__text {
+    color: #c7b299;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    flex: 1 1 auto;
+    max-width: 150px;
+    @media (max-width: $md3+px) {
+      font-size: 13px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 11px;
+    }
+  }
+}
+//================================================================================================
+
+//================================================================================================
+.recent {
+  margin: 80px 0px 120px 0px;
+  @media (max-width: $md1+px) {
+    margin: 70px 0px;
+  }
+  @media (max-width: $md2+px) {
+    margin: 50px 0px;
+  }
+  @media (max-width: $md3+px) {
+    margin: 35px 0px;
+  }
+  @media (max-width: $md4+px) {
+    margin: 20px 0px;
+  }
+}
+.recent-body {
+  &__title {
+    color: #555555;
+    font-family: 'Raleway';
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+  }
+
+  &__text {
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    max-width: 777px;
+    margin: 0 auto 35px;
+    text-align: center;
+  }
+}
+.recent-content {
+  @include flexbox();
+  overflow: hidden;
+  justify-content: space-between;
+  @media (max-width: $md3+px) {
+    flex-wrap: wrap;
+  }
+  &__column {
+    @include flexbox();
+    flex-direction: column;
+    margin: 0px 30px 0px 0px;
+    &:last-child {
+    }
+    @media (max-width: $md3+px) {
+      margin: 0px 10px 0px 0px;
+      padding: 0px 0px 0px 0px;
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &:hover {
+      .recent-column {
+        &__imageblock {
+          &::before {
+            opacity: 1;
+          }
+        }
+        &__number {
+          background-color: #c7b299;
+        }
+        &__month {
+          background-color: #a48d72;
+        }
+        &__content {
+          background-color: #362f2d;
+          border: 1px solid #362f2d;
+        }
+        &__title {
+          color: #c7b299;
+        }
+        &__text {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+.recent-column {
+  @include flexbox();
+  &__imageblock {
+    position: relative;
+    padding: 0px 0px 70% 0px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      @include anim(0.4s, 0s);
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+    }
+  }
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  &__date {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    @media (max-width: $md2+px) {
+      top: 15px;
+      left: 15px;
+    }
+    @media (max-width: $md3+px) {
+      top: 10px;
+      left: 10px;
+    }
+    @media (max-width: $md4+px) {
+      top: 7px;
+      left: 7px;
+    }
+  }
+  &__number {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+    background-color: #363636;
+    padding: 10px;
+    @include anim(1s, 0s);
+    @media (max-width: $md3+px) {
+      font-size: 21px;
+      padding: 7px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 16px;
+      padding: 4px;
+    }
+  }
+  &__month {
+    color: #ffffff;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 0 0 3px 3px;
+    background-color: #252525;
+    padding: 4px 8px;
+    @include anim(1s, 0s);
+    @media (max-width: $md3+px) {
+      line-height: 15px;
+      font-size: 11px;
+    }
+  }
+  &__content {
+    @include anim(0.4s, 0s);
+    flex: 1 1;
+    padding: 30px 35px 30px 30px;
+    border: 1px solid #f8f8f8;
+
+    @media (max-width: $md1+px) {
+      padding: 20px 25px 20px 20px;
+    }
+    @media (max-width: $md2+px) {
+      padding: 10px 15px 10px 10px;
+    }
+  }
+
+  &__title {
+    color: #555555;
+    font-family: Raleway;
+    font-size: 20px;
+    display: block;
+    font-weight: 500;
+    flex: 1 1 auto;
+    text-align: left;
+    margin: 0px 0px 15px 0px;
+    @media (max-width: $md2+px) {
+      line-height: 26px;
+      margin: 0px 0px 10px 0px;
+    }
+    @media (max-width: $md3+px) {
+      line-height: 20px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 16px;
+      margin: 0px 0px 8px 0px;
+    }
+  }
+
+  &__text {
+    color: #8c8c8c;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: left;
+    flex: 1 1 auto;
+    margin: 0px 0px 20px 0px;
+    @media (max-width: $md2+px) {
+      text-align: justify;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 10px 0px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 12px;
+    }
+  }
+
+  &__button {
+    background: url('../img/recent/readmore.svg') right 5px no-repeat;
+    color: #c7b299;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: left;
+    padding: 0px 15px 0px 0px;
+  }
+}
+//===================================================================================================
+.brands {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../img/brands/bg.png') 50% 100% / cover no-repeat;
+  max-height: 489px;
+  height: 100%;
+  &__item {
+    max-width: 210px;
+    height: auto;
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $md1+px) {
+      max-width: 180px;
+    }
+    @media (max-width: $md2+px) {
+      max-width: 130px;
+    }
+    @media (max-width: $md3+px) {
+      max-width: 115px;
+    }
+    @media (max-width: 590px) {
+      flex: 0 0 40%;
+      max-width: none;
+      padding: 20px;
+    }
+    @media (max-width: $md4+px) {
+      padding: 20px 10px;
+    }
+  }
+}
+.brands-row {
+  @include flexbox();
+  justify-content: space-between;
+  align-items: center;
+  padding: 140px 0px;
+  max-width: 1110px;
+  margin: 0 auto;
+  @media (max-width: $md1+px) {
+    padding: 110px 0px;
+  }
+  @media (max-width: $md2+px) {
+    padding: 80px 0px;
+  }
+  @media (max-width: $md3+px) {
+    padding: 65px 0px;
+  }
+  @media (max-width: 590px) {
+    flex-wrap: wrap;
+    padding: 40px 0px;
+  }
+  @media (max-width: $md4+px) {
+    padding: 15px 0px;
+  }
+}
+//========================================================================================================
+.widget {
+  background-color: #191919;
+  &__row {
+    @include flexbox();
+    justify-content: space-between;
+    margin: 0 -20px;
+    padding: 80px 0px;
+    @media (max-width: $md1+px) {
+      padding: 60px 0px;
+    }
+    @media (max-width: $md2+px) {
+      flex-wrap: wrap;
+      padding: 40px 0px;
+    }
+    @media (max-width: $md3+px) {
+      padding: 25px 0px;
+    }
+    @media (max-width: $md4+px) {
+      justify-content: center;
+    }
+  }
+
+  &__column {
+    flex: 0 1 25%;
+    padding: 0px 20px;
+    @media (max-width: $md2+px) {
+      flex: 0 1 50%;
+      margin: 0px 0px 40px 0px;
+    }
+    @media (max-width: $md3+px) {
+      padding: 0px 30px;
+      flex: 0 1 100%;
+    }
+    @media (max-width: $md4+px) {
+      flex: 0 1 100%;
+      text-align: center;
+      margin: 0px 0px 40px 0px;
+    }
+    @media (max-width: $md4+px) {
+      margin: 0px 0px 30px 0px;
+    }
+  }
+
+  &__header {
+    padding: 25px 0px 0px 0px;
+    margin: 0px 0px 25px 0px;
+    color: #ffffff;
+    font-family: 'Raleway';
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    &--logotype {
+      @include flexbox();
+      padding: 0px 0px 0px 0px;
+      align-items: center;
+      font-weight: 400;
+      text-align: center;
+    }
+    @media (max-width: $md4+px) {
+      text-align: center;
+      display: inline-block;
+      margin: 10px 0px 10px 0px;
+    }
+  }
+
+  &__logo {
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 10px 0px;
+    }
+  }
+
+  &__logoname {
+    color: #ffffff;
+    font-family: 'Raleway';
+    font-size: 34px;
+    font-weight: 400;
+    text-align: right;
+    letter-spacing: -1.36px;
+  }
+
+  &__text {
+    color: #555555;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    margin: 0px 0px 25px 0px;
+    &--hot {
+      color: #c7b299;
+    }
+    @media (max-width: $md4+px) {
+      text-align: center;
+      padding: 0px 5px;
+      margin: 0px 0px 15px 0px;
+    }
+  }
+  &__hashtag {
+    color: #00bff3;
+  }
+
+  &__time {
+    color: #363636;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    margin: -20px 0px 0px 0px;
+    @media (max-width: $md4+px) {
+      padding: 0px 5px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    color: #959595;
+  }
+
+  &__link-button {
+    color: #d1d1d1;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 8px;
+      background: url('../img/icons/triangle.svg') 0 0 no-repeat;
+      margin: 0px 0px 0px 10px;
+    }
+  }
+
+  &__date {
+    color: #363636;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    &--hot {
+      color: #ffffff;
+    }
+    @media (max-width: $md4+px) {
+      padding: 0px 5px;
+      text-align: center;
+    }
+  }
+
+  &__text--hot {
+  }
+}
+hr {
+  width: 270px;
+  height: 1px;
+  background-color: #252525;
+  margin: 20px 0px;
+  @media (max-width: $md4+px) {
+    display: inline-block;
+    margin: 7px 0px;
+  }
+}
+.widget-image {
+  @include flexbox();
+  @media (max-width: $md1+px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: $md2+px) {
+    flex-wrap: nowrap;
+  }
+  @media (max-width: $md4+px) {
+    justify-content: center;
+  }
+  &__item {
+    margin: 5px 5px 5px 5px;
+    width: 130px;
+    height: 98px;
+    @media (max-width: $md4+px) {
+      width: 110px;
+      height: 84px;
+    }
+  }
+}
+.widget-image-col {
+  @include flexbox();
+  flex-direction: column;
+}

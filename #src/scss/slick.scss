@@ -1,0 +1,196 @@
+/* Слайдер */
+.slick-slider {
+}
+/* Слайдер запущен */
+.slick-slider.slick-initialized {
+}
+/* Слайдер с точками */
+.slick-slider.slick-dotted {
+}
+/* Ограничивающая оболочка */
+.slick-list {
+	overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track {
+	@include flexbox();
+	align-items: flex-start;
+	justify-content: space-between;
+	overflow: hidden;
+}
+/* Слайд */
+.slick-slide {
+	overflow: hidden;
+}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active {
+}
+/* Слайд основной */
+.slick-slide.slick-current {
+}
+/* Слайд по центру */
+.slick-slide.slick-center {
+}
+/* Клонированный слайд */
+.slick-slide.slick-cloned {
+}
+/* Стрелка */
+.slick-arrow {
+}
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+}
+/* Стрелка вправо */
+.slick-arrow.slick-next {
+}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled {
+}
+/* Точки (булиты) */
+.slick-dots {
+	position: relative;
+	z-index: 500;
+	line-height: 10px;
+	overflow: visible;
+}
+.slick-dots li {
+}
+/* Активная точка */
+.slick-dots li.slick-active {
+	overflow: visible;
+}
+/* Элемент точки */
+.slick-dots li button {
+}
+//===========================================================================================
+.intro-slick {
+	position: relative;
+}
+.intro-slick .slick-arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+	font-size: 0;
+	width: 40px;
+	height: 73px;
+	@media (max-width: $md3+px) {
+		width: 15px;
+		height: 27px;
+	}
+}
+.slick-arrow {
+}
+.intro-slick .slick-arrow.slick-prev {
+	background: url("../img/icons/left.svg") 0 0 / 100% no-repeat;
+	left: 0;
+	top: 38%;
+	margin: 0px 0px 0px 50px;
+	@media (max-width: $md2+px) {
+		margin: 0px 0px 0px 15px;
+		background: url("../img/icons/left.svg") 0 0 / 80% no-repeat;
+	}
+	@media (max-width: $md3+px) {
+		top: 14.5%;
+		left: 16%;
+		background: url("../img/icons/left.svg") 0 0 / 100% no-repeat;
+		margin: 0px 35px 0px 0px;
+	}
+}
+.intro-slick .slick-arrow.slick-next {
+	background: url("../img/icons/right.svg") 0 0 / 100% no-repeat;
+	right: 0;
+	top: 38%;
+	margin: 0px 50px 0px 0px;
+	@media (max-width: $md2+px) {
+		margin: 0px 15px 0px 0px;
+		background: url("../img/icons/right.svg") 0 0 / 80% no-repeat;
+	}
+	@media (max-width: $md3+px) {
+		top: 14.5%;
+		right: 16%;
+		margin: 0px 0px 0px 35px;
+		background: url("../img/icons/right.svg") 0 0 / 100% no-repeat;
+	}
+}
+.intro-slick .slick-arrow {
+	@include anim(0.4s, 0s);
+	@media (max-width: $md3+px) {
+	}
+}
+.intro-slick .slick-arrow:hover {
+	transform: scale(1.2);
+}
+.intro-slick .slick-dots {
+	@include flexbox();
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 8%;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	@media (max-width: $md3+px) {
+		bottom: 83%;
+	}
+}
+.intro-slick .slick-dots li {
+	list-style: none;
+	margin: 0px 12px;
+	border: 1.3px solid #fff;
+	border-radius: 50%;
+	background-color: #8f9091;
+	@include anim(0.5s, 0s);
+}
+
+/* Активная точка */
+.intro-slick .slick-dots li.slick-active {
+	transform: scale(1.6);
+	overflow: visible;
+	background-color: #c7b299;
+}
+
+/* Элемент точки */
+.intro-slick .slick-dots li button {
+	font-size: 0;
+	width: 14px;
+	height: 14px;
+	background-color: #8f9091;
+	border-radius: 50%;
+	@media (max-width: $md3+px) {
+		width: 10px;
+		height: 10px;
+	}
+}
+.slick-slider .slick-dots li.slick-active button {
+	background-color: #c7b299;
+}
+//========================================================
+
+.dotsarrows {
+	position: relative;
+	margin: 0px 0px 40px 0px;
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		margin: 10px 0px 20px 0px;
+		z-index: 10;
+		font-size: 0;
+		height: 23px;
+		width: 23px;
+	}
+}
+.dotsarrows .slick-arrow.slick-prev {
+	left: 41%;
+	background: url("../img/icons/leftarrow.svg") 0 0 / 100% no-repeat;
+	&:active {
+		background: url("../img/icons/leftarrow-active.svg") 0 0 / 100% no-repeat;
+	}
+}
+/* Стрелка вправо */
+.dotsarrows .slick-arrow.slick-next {
+	right: 41%;
+	background: url("../img/icons/rightarrow.svg") 0 0 / 100% no-repeat;
+	&:active {
+		background: url("../img/icons/rightarrow-active.svg") 0 0 / 100% no-repeat;
+	}
+}

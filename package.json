@@ -1,0 +1,37 @@
+{
+	"name": "fls_start_gulp",
+	"version": "1.0.0",
+	"description": "Start template with Gulp",
+	"author": "FLS",
+	"private": true,
+	"license": "GNU General Public License (GPL)",
+	"devDependencies": {
+		"browser-sync": "^2.26.13",
+		"del": "^6.0.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-file-include": "^2.2.2",
+		"gulp-fonter": "^0.3.0",
+		"gulp-group-css-media-queries": "latest",
+		"gulp-imagemin": "latest",
+		"gulp-media-queries-splitter": "latest",
+		"gulp-newer": "latest",
+		"gulp-plumber": "latest",
+		"gulp-rename": "latest",
+		"gulp-replace": "latest",
+		"gulp-responsive": "latest",
+		"gulp-sass": "latest",
+		"gulp-ttf2woff": "latest",
+		"gulp-ttf2woff2": "latest",
+		"gulp-uglify-es": "latest",
+		"gulp-webp-css": "^1.1.0",
+		"gulp-webp-html": "latest",
+		"imagemin-webp": "latest",
+		"transform-runtime": "0.0.0",
+		"webp-converter": "^2.2.3"
+	},
+	"dependencies": {
+		"animate.css": "^4.1.1"
+	}
+}
